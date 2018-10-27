@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import deepLearningVideo from './assets/video/dl-1.mp4'
+import VideoPlayer from './components/VideoPlayer'
+import TranscriptBrowser from './components/TranscriptBrowser'
 import transcript from './assets/transcript.json'
 import './App.css';
 
@@ -17,6 +19,11 @@ const secondsToTimestamp = (totalSeconds) => {
   if (minutes.length < 2) minutes = `0${minutes}`
   if (remainder.length < 2) remainder = `0${remainder}`
   return `${minutes}:${remainder}`
+}
+
+const timestampToSeconds = (moment) => {
+  const [minutes, seconds] = moment.split(':')
+  return (Number(minutes) * 60) + Number(seconds)
 }
 
 class App extends Component {
@@ -47,9 +54,8 @@ class App extends Component {
 
   goToMoment = (timestamp) => {
     if (!this.videoPlayer) this.videoPlayer = document.querySelector('video');
-    this.videoPlayer.currentTime = timestamp;
-    this.videoPlayer.play();
-    // this.setState({ currentMoment: timestamp })
+    const time = timestampToSeconds(timestamp)
+    this.videoPlayer.currentTime = time;
   }
 
   toggleLessons = () => {
@@ -80,95 +86,18 @@ class App extends Component {
         </section>
         <section className="right">
           <div className="row">
-            <VideoPlayer />
+            <VideoPlayer video={deepLearningVideo} />
             <div className="chapter-nav white">
             {CHAPTERS.map(chap => {
               return <div className="chapter ba grow">{chap}</div>
             })}
             </div>
           </div>
-          <TranscriptBrowser currentMoment={currentMoment} transcript={transcript} />
+          <TranscriptBrowser transcript={transcript} goToMoment={this.goToMoment} currentMoment={currentMoment} />
         </section>
       </div>
     );
   }
 }
-
-class TranscriptBrowser extends Component {
-  state = {
-    search: '',
-    currentMoment: null,
-  }
-
-  handleChange = (e) => {
-    const { value } = e.target
-    this.setState({ search: value })
-  }
-
-  static getDerivedStateFromProps = (props, state) => {
-    if (props.transcript[props.currentMoment]) return { ...state, currentMoment: props.transcript[props.currentMoment] }
-    return { ...state }
-  }
-
-  get currentMomentSentence () {
-    const { transcript, currentMoment } = this.props
-    return transcript[currentMoment]
-  }
-
-  render() {
-    const { transcript } = this.props
-    const { search, currentMoment } = this.state
-    return <div className="TranscriptBrowser">
-      <div className="top">
-        <span>Transcript Browser</span>
-        <Search search={search} handleChange={this.handleChange} transcript={transcript} />
-      </div>
-      <div className="bottom">
-        {(currentMoment && !search) && <div className="Moment">{currentMoment}</div>}
-        {search && ["okay so welcome practical deep learning",
-          "for coders less than one it's kind of",
-          "lesson two because there's a lesson zero",
-          "in less than zero is is why do you need",
-          "a GPU and how do you get it set up so if"].map(result => {
-          return <div className="search-result dim">{result}</div>
-        })}
-      </div>
-    </div>
-  }
-}
-
-const VideoPlayer = (props) => (
-  <div class="VideoPlayer">
-    <video
-      controls
-      width="100%"
-      height="100%"
-      >
-        <source src={deepLearningVideo} type="video/mp4" />
-      </video>
-  </div>
-)
-
-
-class Search extends Component {
-  constructor(props) {
-    super(props)
-  }
-
-  render() {
-    const { search, handleChange } = this.props
-    return (<div className="Search">
-      <input
-        className="fl w-100"
-        value={search}
-        onChange={handleChange}
-        placeholder="search transcripts and chapter headings..."
-      />
-    </div>)
-  }
-}
-
-// export default VideoPlayer;
-
 
 export default App;
