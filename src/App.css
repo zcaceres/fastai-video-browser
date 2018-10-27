@@ -3,6 +3,7 @@
   width: 100vw;
   display: flex;
   flex-direction: row;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
 }
 
 .App .App-header {
@@ -13,11 +14,33 @@
 
 .App .right {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.App .right .VideoPlayer {
+  flex: 5;
+}
+
+.App .right .chapter-nav {
+  background-color: #202020;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.App .right .chapter-nav .chapter {
+  flex: 1;
+}
+
+.App .row {
+  display: flex;
+  flex-direction: row;
 }
 
 .App .left {
   background-color: #202020;
   display: flex;
+  position: relative;
   text-align: right;
   flex-direction: column;
   width: 10rem;
@@ -25,7 +48,15 @@
 }
 
 .App .left .toggle-bar {
+  z-index: 20;
   cursor: pointer;
+  font-size: 2rem;
+  width: 30px;
+  position: absolute;
+  top: 1.7rem;
+  text-align: center;
+  right: -30px;
+  background-color: #202020;
 }
 
 .App .left .lessons {
@@ -40,6 +71,7 @@
   text-align: center;
   cursor: pointer;
   opacity: 0.5;
+  padding-top: 1.8rem;
 }
 
 .App .left .lessons .lesson.selected {
@@ -50,83 +82,53 @@
   background-color: #202020;
   display: flex;
   flex-direction: column;
-  width: 3rem;
-}
-
-.App .chapter-nav {
-  /* text-align: center;
-  display: flex;
-  margin-top: 10rem;
-  flex-direction: column;
-  height: 30rem;
-  overflow-y: auto;
-  padding: 10px 1rem; */
+  width: 0rem;
 }
 
 .App .chapter-nav .chapter {
   cursor: pointer;
 }
 
-.VideoPanel {
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
-}
-
-.Search {
-
-}
-
-/* .App {
-  background-color: #202020;
-  height: 100vh;
-  width: 100vw;
-  overflow: auto;
+.TranscriptBrowser .top {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.App .body-container {
-  width: 80%;
-  margin: 0 10%;
-  margin-bottom: 10%;
-}
-
-header {
-  text-align: center;
-  padding-top: 3vh;
-  color: #fff;
-}
-
-.VideoPanel {
+.TranscriptBrowser .bottom {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.VideoPlayer {
+.TranscriptBrowser .bottom .search-result {
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.TranscriptBrowser .bottom .search-result:hover {
+  text-decoration: underline;
+}
+
+.TranscriptBrowser span {
+  flex: 1;
+  opacity: 0.5;
+  margin: auto;
   text-align: center;
-  width: 100%;
 }
 
-.Search {
-  text-align: center;
+.TranscriptBrowser .Search {
+  flex: 8;
+  margin-right: 20%;
 }
 
-.Search input {
-  height: 30px;
-  width: 100%;
+.TranscriptBrowser .Search input {
+  padding-left: 10px;
+  height: 2rem;
 }
 
-.App .body-container .chapter-nav {
-  float: left;
-  background-color: white;
-  height: ;
+.Moment {
+  padding: 1rem;
+  margin: auto;
+  font-size: 3rem;
 }
-
-.dark-grey {
-  color: #202020
-}
-
-.dark-grey-bg {
-  background-color: #202020
-} */
