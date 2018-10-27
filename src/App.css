@@ -1,0 +1,132 @@
+.App {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+}
+
+.App .App-header {
+  text-align: center;
+  font-family: 'Abril Fatface', cursive;
+  font-weight: 700;
+}
+
+.App .right {
+  width: 100%;
+}
+
+.App .left {
+  background-color: #202020;
+  display: flex;
+  text-align: right;
+  flex-direction: column;
+  width: 10rem;
+  transition: width 0.4s ease-in-out;
+}
+
+.App .left .toggle-bar {
+  cursor: pointer;
+}
+
+.App .left .lessons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.App .left .lessons .lesson {
+  height: 5rem;
+  width: 80%;
+  text-align: center;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.App .left .lessons .lesson.selected {
+  opacity: 1;
+}
+
+.App .left.closed {
+  background-color: #202020;
+  display: flex;
+  flex-direction: column;
+  width: 3rem;
+}
+
+.App .chapter-nav {
+  /* text-align: center;
+  display: flex;
+  margin-top: 10rem;
+  flex-direction: column;
+  height: 30rem;
+  overflow-y: auto;
+  padding: 10px 1rem; */
+}
+
+.App .chapter-nav .chapter {
+  cursor: pointer;
+}
+
+.VideoPanel {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+}
+
+.Search {
+
+}
+
+/* .App {
+  background-color: #202020;
+  height: 100vh;
+  width: 100vw;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.App .body-container {
+  width: 80%;
+  margin: 0 10%;
+  margin-bottom: 10%;
+}
+
+header {
+  text-align: center;
+  padding-top: 3vh;
+  color: #fff;
+}
+
+.VideoPanel {
+  display: flex;
+  flex-direction: column;
+}
+
+.VideoPlayer {
+  text-align: center;
+  width: 100%;
+}
+
+.Search {
+  text-align: center;
+}
+
+.Search input {
+  height: 30px;
+  width: 100%;
+}
+
+.App .body-container .chapter-nav {
+  float: left;
+  background-color: white;
+  height: ;
+}
+
+.dark-grey {
+  color: #202020
+}
+
+.dark-grey-bg {
+  background-color: #202020
+} */
