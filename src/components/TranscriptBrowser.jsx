@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import Search from './Search'
+import lesson1Trans from '../assets/dl-1-1/transcript.json'
+import lesson2Trans from '../assets/dl-1-2/transcript.json'
+const TRANSCRIPTS = [lesson1Trans, lesson2Trans]
 
 class TranscriptBrowser extends Component {
   state = {
@@ -13,12 +16,18 @@ class TranscriptBrowser extends Component {
   }
 
   static getDerivedStateFromProps = (props, state) => {
-    if (props.transcript[props.currentMoment]) return { ...state, currentMoment: props.transcript[props.currentMoment] }
+    const transcript = TRANSCRIPTS[props.lesson]
+    if (transcript[props.currentMoment]) return { ...state, currentMoment: transcript[props.currentMoment] }
     return { ...state }
   }
 
+  get currentTranscript() {
+    const { lesson } = this.props
+    return TRANSCRIPTS[lesson]
+  }
+
   get searchResults() {
-    const { transcript } = this.props
+    const transcript = this.currentTranscript
     const { search } = this.state
     return Object.keys(transcript)
       .filter(timestamp => transcript[timestamp].toLowerCase().includes(search))
@@ -27,12 +36,12 @@ class TranscriptBrowser extends Component {
   }
 
   render() {
-    const { transcript, goToMoment } = this.props
+    const { goToMoment } = this.props
     const { search, currentMoment } = this.state
     return <div className="TranscriptBrowser">
       <div className="top">
         <span>Transcript Browser</span>
-        <Search search={search} handleChange={this.handleChange} transcript={transcript} />
+        <Search search={search} handleChange={this.handleChange} transcript={this.getTranscript} />
       </div>
       <div className="bottom">
         {(currentMoment && !search) && <div className="Moment">{currentMoment}</div>}

@@ -1,13 +1,9 @@
 import React, { Component, Fragment } from 'react';
-import deepLearningVideo from './assets/video/dl-1.mp4'
 import VideoPlayer from './components/VideoPlayer'
 import TranscriptBrowser from './components/TranscriptBrowser'
-import transcript from './assets/transcript.json'
 import './App.css';
-
-const LESSONS = ['Lesson 1', 'Lesson 2', 'Lesson 3', 'Lesson 4', 'Lesson 5', 'Lesson 6', 'Lesson 7']
-const CHAPTERS = ['Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5']
-
+const LESSONS = ['Lesson 1', 'Lesson 2', 'Coming Soon!', 'Coming Soon!', 'Coming Soon!', 'Coming Soon!', 'Coming Soon!']
+const CHAPTERS = null // ['Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5']
 
 const getMinutes = (seconds) => {
   return (seconds.toFixed(0)/60).toString().split('.')[0]
@@ -79,21 +75,21 @@ class App extends Component {
                 <h1 className="f2 underline white"><a href="http://fast.ai" target="_blank" rel="noopener noreferrer">fast.ai</a></h1>
               </header>
               <div className="lessons white">
-                {LESSONS.map((lesson, i) => <div onClick={() => selectLesson(i)} className={`${i === selectedLesson ? 'selected' : ''} lesson ba grow`}>{lesson}</div>)}
+                {LESSONS.map((lesson, i) => <div onClick={lesson === 'Coming Soon!' ? () => {} : () => selectLesson(i)} className={`${i === selectedLesson ? 'selected' : ''} lesson ba grow`}>{lesson}</div>)}
               </div>
             </Fragment>
           )}
         </section>
         <section className="right">
           <div className="row">
-            <VideoPlayer video={deepLearningVideo} />
-            <div className="chapter-nav white">
+            <VideoPlayer lesson={selectedLesson} />
+            {CHAPTERS && <div className="chapter-nav white">
             {CHAPTERS.map(chap => {
               return <div className="chapter ba grow">{chap}</div>
             })}
-            </div>
+            </div>}
           </div>
-          <TranscriptBrowser transcript={transcript} goToMoment={this.goToMoment} currentMoment={currentMoment} />
+          <TranscriptBrowser lesson={selectedLesson} goToMoment={this.goToMoment} currentMoment={currentMoment} />
         </section>
       </div>
     );
