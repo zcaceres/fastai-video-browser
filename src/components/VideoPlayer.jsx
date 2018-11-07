@@ -8,7 +8,7 @@ class VideoPlayer extends React.Component {
     console.log('re-rendering video')
     const { lesson } = this.props
       return (
-        <div class="VideoPlayer">
+        <div className="VideoPlayer">
           <video
             key={lesson}
             // We must include key here so video player is re-rendered on props change
