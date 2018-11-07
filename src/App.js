@@ -49,9 +49,11 @@ class App extends Component {
   }
 
   goToMoment = (timestamp) => {
-    if (!this.videoPlayer) this.videoPlayer = document.querySelector('video');
+    const lessonId = this.videoPlayer.id
+    if (!this.videoPlayer || lessonId !== this.state.selectedLesson) this.videoPlayer = document.querySelector('video');
     const time = timestampToSeconds(timestamp)
     this.videoPlayer.currentTime = time;
+    this.videoPlayer.play()
   }
 
   toggleLessons = () => {
@@ -75,7 +77,7 @@ class App extends Component {
                 <h1 className="f2 underline white"><a href="http://fast.ai" target="_blank" rel="noopener noreferrer">fast.ai</a></h1>
               </header>
               <div className="lessons white">
-                {LESSONS.map((lesson, i) => <div onClick={lesson === 'Coming Soon!' ? () => {} : () => selectLesson(i)} className={`${i === selectedLesson ? 'selected' : ''} lesson ba grow`}>{lesson}</div>)}
+                {LESSONS.map((lesson, i) => <div key={i} onClick={lesson === 'Coming Soon!' ? () => {} : () => selectLesson(i)} className={`${i === selectedLesson ? 'selected' : ''} lesson ba grow`}>{lesson}</div>)}
               </div>
             </Fragment>
           )}
@@ -85,7 +87,7 @@ class App extends Component {
             <VideoPlayer lesson={selectedLesson} />
             {CHAPTERS && <div className="chapter-nav white">
             {CHAPTERS.map(chap => {
-              return <div className="chapter ba grow">{chap}</div>
+              return <div key={chap} className="chapter ba grow">{chap}</div>
             })}
             </div>}
           </div>

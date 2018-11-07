@@ -43,10 +43,10 @@ class TranscriptBrowser extends Component {
         <span>Transcript Browser</span>
         <Search search={search} handleChange={this.handleChange} transcript={this.getTranscript} />
       </div>
-      <div className="bottom">
+      <div className="bottom" key={this.props.currentMoment}>
         {(currentMoment && !search) && <div className="Moment">{currentMoment}</div>}
         {search && this.searchResults.map(result => {
-          return <div onClick={() => goToMoment(result.moment)} className="search-result dim">{result.sentence}</div>
+          return <div key={result.moment} onClick={() => goToMoment(result.moment)} className="search-result dim">{result.sentence}</div>
         })}
       </div>
     </div>

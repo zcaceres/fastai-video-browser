@@ -5,11 +5,11 @@ const VIDEO_SOURCES = [lesson1Vid, lesson2Vid]
 
 class VideoPlayer extends React.Component {
   render() {
-    console.log('re-rendering video')
     const { lesson } = this.props
       return (
         <div className="VideoPlayer">
           <video
+            id={lesson}
             key={lesson}
             // We must include key here so video player is re-rendered on props change
             controls
