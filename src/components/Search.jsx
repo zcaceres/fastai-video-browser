@@ -1,5 +1,5 @@
-import React from 'react'
-
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Search = ({ search, handleChange }) => (
   <div className="Search">
@@ -10,6 +10,15 @@ const Search = ({ search, handleChange }) => (
       placeholder="search transcripts and chapter headings..."
     />
   </div>
-)
+);
 
-export default Search
+Search.defaultProps = {
+  search: '',
+};
+
+Search.propTypes = {
+  search: PropTypes.string,
+  handleChange: PropTypes.func.isRequired,
+};
+
+export default Search;
