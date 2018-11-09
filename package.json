@@ -22,9 +22,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "ajv": "^6.5.5",
-    "eslint": "^5.9.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.14.0"
+    "eslint-config-airbnb": "^17.1.0"
   }
 }

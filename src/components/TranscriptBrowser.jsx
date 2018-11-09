@@ -64,7 +64,7 @@ class TranscriptBrowser extends Component {
               <div
                 key={result.moment}
                 onClick={onClick}
-                onKeyup={onClick}
+                onKeyUp={onClick}
                 role="button"
                 tabIndex="0"
                 className="search-result dim"
@@ -80,9 +80,9 @@ class TranscriptBrowser extends Component {
 }
 
 TranscriptBrowser.propTypes = {
-  currentMoment: PropTypes.number.isRequired,
+  currentMoment: PropTypes.string.isRequired,
   goToMoment: PropTypes.func.isRequired,
-  lesson: PropTypes.string.isRequired,
+  lesson: PropTypes.number.isRequired,
 };
 
 export default TranscriptBrowser;

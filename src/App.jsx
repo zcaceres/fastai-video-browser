@@ -94,14 +94,14 @@ class App extends Component {
               <div className="lessons white">
                 {LESSONS.map((lesson, i) => {
                   const onClick = () => {
-                    if (lesson === 'Coming Soon!') {
+                    if (lesson !== 'Coming Soon!') {
                       selectLesson(i);
                     }
                   };
 
                   return (
                     <div
-                      key={lesson}
+                      key={`lesson-${i}`} // eslint-disable-line react/no-array-index-key
                       onClick={onClick}
                       onKeyUp={onClick}
                       role="button"

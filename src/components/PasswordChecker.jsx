@@ -44,7 +44,7 @@ class PasswordChecker extends Component {
             onChange={this.handleChange}
           />
           <button
-            type="button"
+            type="submit"
           >
             Submit
           </button>

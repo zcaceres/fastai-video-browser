@@ -26,7 +26,7 @@ const VideoPlayer = (props) => {
 };
 
 VideoPlayer.propTypes = {
-  lesson: PropTypes.string.isRequired,
+  lesson: PropTypes.number.isRequired,
 };
 
 export default VideoPlayer;
