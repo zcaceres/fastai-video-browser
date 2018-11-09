@@ -1,4 +1,4 @@
-# Fast.ai Video Browser
+# fast.ai Video Browser
 
 ### A minimalist video browser for fast.ai course v3
 

@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "fast.ai Video Browser",
+  "name": "fast.ai Video Browser",
   "icons": [
     {
       "src": "favicon.ico",
