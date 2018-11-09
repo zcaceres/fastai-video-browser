@@ -14,7 +14,7 @@ Watch videos organized by lesson and chapter.
 
 Search transcripts for moments in the video using the search box.
 
-### Setup
+## Setup
 
 ```shell
 npm install # to install dependencies
