@@ -43,6 +43,8 @@ class App extends Component {
   pollForCurrentMoment = () => {
     if (this.currentMomentInterval) return
     this.currentMomentInterval = setInterval(() => {
+      const lessonId = this.videoPlayer.id
+      if (!this.videoPlayer || lessonId !== this.state.selectedLesson) this.videoPlayer = document.querySelector('video');
       const timestamp = secondsToTimestamp(this.videoPlayer.currentTime)
       this.setState({ currentMoment: timestamp })
     }, 500)
