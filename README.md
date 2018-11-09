@@ -17,6 +17,6 @@ Search transcripts for moments in the video using the search box.
 ### Setup
 
 ```shell
-yarn       # to install dependencies
-yarn start # to spin up dev server
+npm install # to install dependencies
+npm start   # to spin up dev server
 ```
