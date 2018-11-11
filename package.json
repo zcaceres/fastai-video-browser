@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "crypto-js": "^3.1.9-1",
+    "prop-types": "^15.6.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-scripts": "2.0.5"
@@ -14,13 +15,13 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "eslint-config-airbnb": "^17.1.0"
+  }
 }

@@ -1,4 +1,4 @@
-# Fast.ai Video Browser
+# fast.ai Video Browser
 
 ### A minimalist video browser for fast.ai course v3
 
@@ -14,7 +14,7 @@ Watch videos organized by lesson and chapter.
 
 Search transcripts for moments in the video using the search box.
 
-### Setup
+## Setup
 
 ```shell
 npm install # to install dependencies
