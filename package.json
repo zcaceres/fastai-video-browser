@@ -2,6 +2,7 @@
   "name": "fast-ai-video-viewer",
   "version": "0.1.0",
   "private": true,
+  "license": "BSD-3-Clause",
   "dependencies": {
     "crypto-js": "^3.1.9-1",
     "prop-types": "^15.6.2",
