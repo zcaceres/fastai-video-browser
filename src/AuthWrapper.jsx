@@ -4,17 +4,17 @@ import PasswordChecker from './components/PasswordChecker';
 
 export default class AuthWrapper extends Component {
   state = {
-    authed: false,
+    authorized: false,
   }
 
-  authed = () => {
-    this.setState({ authed: true });
+  authorized = () => {
+    this.setState({ authorized: true });
   }
 
   render() {
-    const { authed } = this.state;
+    const { authorized } = this.state;
 
-    if (!authed) return <PasswordChecker authed={this.authed} />;
+    if (!authorized) return <PasswordChecker authorized={this.authorized} />;
 
     return <App />;
   }
