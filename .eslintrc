@@ -2,6 +2,14 @@
   "parser": "babel-eslint",
   "extends": [
     "airbnb",
-    "react-app"
-  ]
+    "react-app",
+    "prettier",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": ["error"],
+    "jsx-a11y/href-no-hash": ["off"],
+    "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }]
+  }
 }
