@@ -6,16 +6,11 @@
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
 }
 
-.App-header {
-  text-align: center;
-  font-family: 'Abril Fatface', cursive;
-  font-weight: 700;
-}
-
 .App .right {
   width: 100%;
   display: flex;
   flex-direction: column;
+  background-color: white;
 }
 
 .App .right .VideoPlayer {
@@ -135,13 +130,4 @@
   padding: 1rem;
   margin: auto;
   font-size: 3rem;
-}
-
-.PasswordChecker {
-  height: 100vh;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  background-color: #202020;
 }
