@@ -1,8 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import crypto from 'crypto-js';
+import styled from 'styled-components';
+
+import COLORS from '../utils/colors';
+
+import BrandLogo from './BrandLogo';
 
 const HASH = '7fb2990d51938b98cd97bbc04cd9027c9e4e0e6d21a258a8d9ac10febebdcac64d63025ed50a6ee6aec6b666eaf2549070fbc2250f5d0f31ab0f15fc9896c6df';
+
+const StyledPasswordChecker = styled.div`
+  height           : 100vh;
+  display          : flex;
+  flex-direction   : row;
+  align-items      : center;
+  justify-content  : center;
+  background-color : ${COLORS.SITE_BACKGROUND};
+`;
 
 class PasswordChecker extends Component {
   state = {
@@ -10,14 +24,14 @@ class PasswordChecker extends Component {
   }
 
   checkPass = (e) => {
-    const { authed } = this.props;
+    const { authorized } = this.props;
     const { plaintext } = this.state;
 
     e.preventDefault();
     e.stopPropagation();
     const hashed = crypto.SHA3(plaintext).toString();
     // console.log(hashed, hashed === HASH);
-    if (hashed === HASH) return authed();
+    if (hashed === HASH) return authorized();
     this.setState({ plaintext: '' });
 
     return null;
@@ -55,7 +69,7 @@ class PasswordChecker extends Component {
 }
 
 PasswordChecker.propTypes = {
-  authed: PropTypes.func.isRequired,
+  authorized: PropTypes.func.isRequired,
 };
 
 export default PasswordChecker;
