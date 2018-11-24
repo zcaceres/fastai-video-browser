@@ -3,10 +3,19 @@ import VideoPlayer from './components/VideoPlayer';
 import TranscriptBrowser from './components/TranscriptBrowser';
 import './App.css';
 
-const LESSONS = ['Lesson 1', 'Lesson 2', 'Coming Soon!', 'Coming Soon!', 'Coming Soon!', 'Coming Soon!', 'Coming Soon!'];
+const LESSONS = [
+  'Lesson 1',
+  'Lesson 2',
+  'Lesson 3',
+  'Coming Soon!',
+  'Coming Soon!',
+  'Coming Soon!',
+  'Coming Soon!',
+];
 const CHAPTERS = null; // ['Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5']
 
-const getMinutes = seconds => (seconds.toFixed(0) / 60).toString().split('.')[0];
+const getMinutes = (seconds) =>
+  (seconds.toFixed(0) / 60).toString().split('.')[0];
 
 const secondsToTimestamp = (totalSeconds) => {
   let minutes = getMinutes(totalSeconds);
@@ -18,7 +27,7 @@ const secondsToTimestamp = (totalSeconds) => {
 
 const timestampToSeconds = (moment) => {
   const [minutes, seconds] = moment.split(':');
-  return (Number(minutes) * 60) + Number(seconds);
+  return Number(minutes) * 60 + Number(seconds);
 };
 
 class App extends Component {
@@ -32,7 +41,7 @@ class App extends Component {
     showLessons: true,
     selectedLesson: 0,
     currentMoment: '00:00',
-  }
+  };
 
   componentDidMount() {
     this.videoPlayer = document.querySelector('video');
@@ -49,7 +58,7 @@ class App extends Component {
       const timestamp = secondsToTimestamp(this.videoPlayer.currentTime);
       this.setState({ currentMoment: timestamp });
     }, 500);
-  }
+  };
 
   goToMoment = (timestamp) => {
     const { selectedLesson } = this.state;
@@ -59,17 +68,17 @@ class App extends Component {
     const time = timestampToSeconds(timestamp);
     this.videoPlayer.currentTime = time;
     this.videoPlayer.play();
-  }
+  };
 
   toggleLessons = () => {
     const { showLessons } = this.state;
 
     this.setState({ showLessons: !showLessons });
-  }
+  };
 
   selectLesson = (selectedLesson) => {
     this.setState({ selectedLesson });
-  }
+  };
 
   render() {
     const { toggleLessons, selectLesson } = this;
@@ -89,7 +98,15 @@ class App extends Component {
           {showLessons && (
             <Fragment>
               <header className="App-header serif">
-                <h1 className="f2 underline white"><a href="http://fast.ai" target="_blank" rel="noopener noreferrer">fast.ai</a></h1>
+                <h1 className="f2 underline white">
+                  <a
+                    href="http://fast.ai"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    fast.ai
+                  </a>
+                </h1>
               </header>
               <div className="lessons white">
                 {LESSONS.map((lesson, i) => {
@@ -106,7 +123,11 @@ class App extends Component {
                       onKeyUp={onClick}
                       role="button"
                       tabIndex="0"
-                      className={`${i === selectedLesson ? 'selected' : ''} lesson ba grow`}
+                      className={`${
+                        i === selectedLesson ? 'selected' : ''
+                      } lesson ba ${
+                        lesson === 'Coming Soon!' ? 'disabled' : 'grow'
+                      }`}
                     >
                       {lesson}
                     </div>

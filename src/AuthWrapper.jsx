@@ -5,11 +5,11 @@ import PasswordChecker from './components/PasswordChecker';
 export default class AuthWrapper extends Component {
   state = {
     authorized: false,
-  }
+  };
 
   authorized = () => {
     this.setState({ authorized: true });
-  }
+  };
 
   render() {
     const { authorized } = this.state;

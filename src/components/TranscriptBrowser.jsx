@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 import Search from './Search';
 import lesson1Trans from '../assets/dl-1-1/transcript.json';
 import lesson2Trans from '../assets/dl-1-2/transcript.json';
+import lesson3Trans from '../assets/dl-1-3/transcript.json';
 
-const TRANSCRIPTS = [lesson1Trans, lesson2Trans];
+const TRANSCRIPTS = [lesson1Trans, lesson2Trans, lesson3Trans];
 
 class TranscriptBrowser extends Component {
   state = {
