@@ -22,3 +22,5 @@ yarn-error.log*
 
 /src/assets
 .cdmessage
+
+assets.zip
