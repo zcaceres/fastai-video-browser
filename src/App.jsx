@@ -7,9 +7,9 @@ const LESSONS = [
   'Lesson 1',
   'Lesson 2',
   'Lesson 3',
-  'Coming Soon!',
-  'Coming Soon!',
-  'Coming Soon!',
+  'Lesson 4',
+  'Lesson 5',
+  'Lesson 6',
   'Coming Soon!',
 ];
 const CHAPTERS = null; // ['Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5']
@@ -98,7 +98,7 @@ class App extends Component {
           {showLessons && (
             <Fragment>
               <header className="App-header serif">
-                <h1 className="f2 underline white">
+                <h1 className="f2 underline white tc">
                   <a
                     href="http://fast.ai"
                     target="_blank"
