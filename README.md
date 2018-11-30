@@ -20,3 +20,10 @@ Search transcripts for moments in the video using the search box.
 npm install # to install dependencies
 npm start   # to spin up dev server
 ```
+
+## Deploy
+```shell
+npm run build
+```
+
+Upload to S3.
