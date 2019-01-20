@@ -10,7 +10,7 @@ const LESSONS = [
   'Lesson 4',
   'Lesson 5',
   'Lesson 6',
-  'Coming Soon!',
+  'Lesson 7',
 ];
 const CHAPTERS = null; // ['Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5']
 
@@ -141,9 +141,13 @@ class App extends Component {
           <div className="row">
             <VideoPlayer lesson={selectedLesson} />
             {CHAPTERS && (
-            <div className="chapter-nav white">
-              {CHAPTERS.map(chap => <div key={chap} className="chapter ba grow">{chap}</div>)}
-            </div>
+              <div className="chapter-nav white">
+                {CHAPTERS.map((chap) => (
+                  <div key={chap} className="chapter ba grow">
+                    {chap}
+                  </div>
+                ))}
+              </div>
             )}
           </div>
           <TranscriptBrowser

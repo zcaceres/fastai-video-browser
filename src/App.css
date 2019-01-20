@@ -41,6 +41,7 @@
   text-align: right;
   flex-direction: column;
   width: 10rem;
+  padding: 0 1%;
   transition: width 0.4s ease-in-out;
 }
 
@@ -80,6 +81,7 @@
   display: flex;
   flex-direction: column;
   width: 0rem;
+  padding: 0;
 }
 
 .App .chapter-nav .chapter {

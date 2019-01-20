@@ -6,6 +6,7 @@ import lesson3Vid from '../assets/dl-1-3/video.mp4';
 import lesson4Vid from '../assets/dl-1-4/video.mp4';
 import lesson5Vid from '../assets/dl-1-5/video.mp4';
 import lesson6Vid from '../assets/dl-1-6/video.mp4';
+import lesson7Vid from '../assets/dl-1-7/video.mp4';
 
 const VIDEO_SOURCES = [
   lesson1Vid,
@@ -14,6 +15,7 @@ const VIDEO_SOURCES = [
   lesson4Vid,
   lesson5Vid,
   lesson6Vid,
+  lesson7Vid,
 ];
 
 const VideoPlayer = (props) => {

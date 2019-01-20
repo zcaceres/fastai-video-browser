@@ -4,7 +4,7 @@ import PasswordChecker from './components/PasswordChecker';
 
 export default class AuthWrapper extends Component {
   state = {
-    authorized: false,
+    authorized: true,
   };
 
   authorized = () => {

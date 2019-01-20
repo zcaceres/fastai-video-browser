@@ -2,13 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import crypto from 'crypto-js';
 import styled from 'styled-components';
-import {
-  Col,
-  Container,
-  Hidden,
-  Row,
-  Visible,
-} from 'react-grid-system';
+import { Col, Container, Hidden, Row, Visible } from 'react-grid-system';
 
 import BrandLogo from './BrandLogo';
 
@@ -63,17 +57,19 @@ class PasswordChecker extends Component {
     const { plaintext } = this.state;
 
     return (
-      <form
-        onSubmit={this.checkPass}
-      >
+      <form onSubmit={this.checkPass}>
         <Container>
           {/* center content vertically */}
           <Row align="center" style={{ height: '100vh' }}>
             <Col>
               <Row>
                 <Col xs={12} sm={4} lg={3}>
-                  <Visible xs><BrandLogo /></Visible>
-                  <Hidden xs><BrandLogo right /></Hidden>
+                  <Visible xs>
+                    <BrandLogo />
+                  </Visible>
+                  <Hidden xs>
+                    <BrandLogo right />
+                  </Hidden>
                 </Col>
                 <Col xs={12} sm={5}>
                   <StyledInput
@@ -83,11 +79,7 @@ class PasswordChecker extends Component {
                   />
                 </Col>
                 <Col xs={12} sm={3}>
-                  <StyledButton
-                    type="submit"
-                  >
-                    Log In
-                  </StyledButton>
+                  <StyledButton type="submit">Log In</StyledButton>
                 </Col>
               </Row>
             </Col>

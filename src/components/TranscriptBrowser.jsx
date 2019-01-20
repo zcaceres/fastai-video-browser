@@ -8,6 +8,7 @@ import lesson3Trans from '../assets/dl-1-3/transcript.json';
 // import lesson4Trans from '../assets/dl-1-4/transcript.json';
 import lesson5Trans from '../assets/dl-1-5/transcript.json';
 import lesson6Trans from '../assets/dl-1-6/transcript.json';
+// import lesson7Trans from '../assets/dl-1-7/transcript.json';
 
 const TRANSCRIPTS = [
   lesson1Trans,
@@ -16,6 +17,7 @@ const TRANSCRIPTS = [
   null,
   lesson5Trans,
   lesson6Trans,
+  null,
 ];
 
 class TranscriptBrowser extends Component {
