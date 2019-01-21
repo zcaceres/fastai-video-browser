@@ -1,7 +1,42 @@
 import React, { Component, Fragment } from 'react';
+import styled from 'styled-components'
+import FontAwesome from 'react-fontawesome';
 import VideoPlayer from './components/VideoPlayer';
 import TranscriptBrowser from './components/TranscriptBrowser';
 import './App.css';
+
+const StyledToggleWrapper = styled.span`
+  padding: 5% 0;
+  z-index: 20;
+  color: white;
+  cursor: pointer;
+  font-size: 2rem;
+  width: 30px;
+  position: absolute;
+  top: 1.7rem;
+  text-align: center;
+  right: -30px;
+  background-color: #202020;
+`
+
+const Icon = styled(FontAwesome)`
+  vertical-align: middle;
+  font-size: 1rem;
+`
+
+const Toggler = ({ onClick, condition, iconTrue, iconFalse }) => (
+  <StyledToggleWrapper onClick={onClick} role="button" tabIndex="0">
+    {condition ? <Icon size="1x" className={iconTrue} /> : <Icon className={iconFalse} size="1x" />}
+  </StyledToggleWrapper>
+)
+
+const StyledApp = styled.div`
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+`;
 
 const LESSONS = [
   'Lesson 1',
@@ -84,17 +119,14 @@ class App extends Component {
     const { toggleLessons, selectLesson } = this;
     const { showLessons, selectedLesson, currentMoment } = this.state;
     return (
-      <div className="App sans-serif">
+      <StyledApp>
         <section className={`left ${showLessons ? '' : 'closed'}`}>
-          <span
-            className="toggle-bar white b"
+          <Toggler
+            condition={showLessons}
             onClick={toggleLessons}
-            onKeyUp={toggleLessons}
-            role="button"
-            tabIndex="0"
-          >
-            {showLessons ? '<' : '>'}
-          </span>
+            iconTrue="fa-chevron-left"
+            iconFalse="fa-chevron-right"
+          />
           {showLessons && (
             <Fragment>
               <header className="App-header serif">
@@ -156,7 +188,7 @@ class App extends Component {
             currentMoment={currentMoment}
           />
         </section>
-      </div>
+      </StyledApp>
     );
   }
 }

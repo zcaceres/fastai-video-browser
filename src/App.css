@@ -1,40 +1,32 @@
-.App {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: row;
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
-}
-
-.App .right {
+.right {
   width: 100%;
   display: flex;
   flex-direction: column;
   background-color: white;
 }
 
-.App .right .VideoPlayer {
+.right .VideoPlayer {
   flex: 5;
 }
 
-.App .right .chapter-nav {
+.right .chapter-nav {
   background-color: #202020;
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-.App .right .chapter-nav .chapter {
+.right .chapter-nav .chapter {
   flex: 1;
   text-align: center;
 }
 
-.App .row {
+.row {
   display: flex;
   flex-direction: row;
 }
 
-.App .left {
+.left {
   background-color: #202020;
   display: flex;
   position: relative;
@@ -45,25 +37,13 @@
   transition: width 0.4s ease-in-out;
 }
 
-.App .left .toggle-bar {
-  z-index: 20;
-  cursor: pointer;
-  font-size: 2rem;
-  width: 30px;
-  position: absolute;
-  top: 1.7rem;
-  text-align: center;
-  right: -30px;
-  background-color: #202020;
-}
-
-.App .left .lessons {
+.left .lessons {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.App .left .lessons .lesson {
+.left .lessons .lesson {
   height: 5rem;
   width: 80%;
   text-align: center;
@@ -72,11 +52,11 @@
   padding-top: 1.8rem;
 }
 
-.App .left .lessons .lesson.selected {
+.left .lessons .lesson.selected {
   opacity: 1;
 }
 
-.App .left.closed {
+.left.closed {
   background-color: #202020;
   display: flex;
   flex-direction: column;
@@ -84,7 +64,7 @@
   padding: 0;
 }
 
-.App .chapter-nav .chapter {
+.chapter-nav .chapter {
   cursor: pointer;
 }
 
