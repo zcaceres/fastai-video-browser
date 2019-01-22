@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactPlayer from 'react-player'
+import YouTubePlayer from 'react-player/lib/players/YouTube'
 
 const VIDEO_SOURCES = [
   "XfoYk_Z5AkI",
@@ -16,7 +16,6 @@ const VideoPlayer = (props) => {
   // "https://www.youtube.com/embed/XfoYk_Z5AkI",
   const { lesson } = props;
 
-  return <ReactPlayer url={`https://www.youtube.com/embed/${VIDEO_SOURCES[lesson]}`} playing />
   // return (
   //   <div className="VideoPlayer">
   //     <video

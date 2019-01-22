@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import FontAwesome from 'react-fontawesome';
 import VideoPlayer from './components/VideoPlayer';
 import TranscriptBrowser from './components/TranscriptBrowser';
+import YouTubePlayer from 'react-player/lib/players/YouTube'
 import './App.css';
 
 const StyledToggleWrapper = styled.span`
@@ -68,7 +69,7 @@ const timestampToSeconds = (moment) => {
 class App extends Component {
   constructor(props) {
     super(props);
-    this.videoPlayer = null;
+    this.videoPlayer = React.createRef();
     this.currentMomentInterval = null;
   }
 
@@ -79,7 +80,6 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.videoPlayer = document.querySelector('video');
     this.pollForCurrentMoment();
   }
 
@@ -89,8 +89,9 @@ class App extends Component {
     if (this.currentMomentInterval) return;
     this.currentMomentInterval = setInterval(() => {
       const lessonId = this.videoPlayer.id;
-      if (!this.videoPlayer || lessonId !== selectedLesson) this.videoPlayer = document.querySelector('video');
-      const timestamp = secondsToTimestamp(this.videoPlayer.currentTime);
+      const curTime = this.videoPlayer.current.getCurrentTime();
+      if (!curTime) return;
+      const timestamp = secondsToTimestamp(curTime);
       this.setState({ currentMoment: timestamp });
     }, 500);
   };
@@ -171,7 +172,7 @@ class App extends Component {
         </section>
         <section className="right">
           <div className="row">
-            <VideoPlayer lesson={selectedLesson} />
+            <YouTubePlayer id="1" ref={this.videoPlayer} url={`https://www.youtube.com/embed/XfoYk_Z5AkI`} controls />
             {CHAPTERS && (
               <div className="chapter-nav white">
                 {CHAPTERS.map((chap) => (
