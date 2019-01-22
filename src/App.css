@@ -5,10 +5,6 @@
   background-color: white;
 }
 
-.right .VideoPlayer {
-  flex: 5;
-}
-
 .right .chapter-nav {
   background-color: #202020;
   flex: 1;

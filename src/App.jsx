@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import FontAwesome from 'react-fontawesome';
 import VideoPlayer from './components/VideoPlayer';
 import TranscriptBrowser from './components/TranscriptBrowser';
-import YouTubePlayer from 'react-player/lib/players/YouTube'
 import './App.css';
 
 const StyledToggleWrapper = styled.span`
@@ -172,7 +171,7 @@ class App extends Component {
         </section>
         <section className="right">
           <div className="row">
-            <YouTubePlayer id="1" ref={this.videoPlayer} url={`https://www.youtube.com/embed/XfoYk_Z5AkI`} controls />
+            <VideoPlayer lesson={selectedLesson} ref={this.videoPlayer} />
             {CHAPTERS && (
               <div className="chapter-nav white">
                 {CHAPTERS.map((chap) => (

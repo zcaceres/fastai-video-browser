@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import YouTubePlayer from 'react-player/lib/players/YouTube'
 
 const VIDEO_SOURCES = [
@@ -12,26 +13,20 @@ const VIDEO_SOURCES = [
   "DGdRC4h78_o",
 ];
 
-const VideoPlayer = (props) => {
+const Wrapper = styled.div`
+  flex: 5;
+  height: 80vh;
+`
+
+const VideoPlayer = React.forwardRef((props, ref) => {
   // "https://www.youtube.com/embed/XfoYk_Z5AkI",
   const { lesson } = props;
-
-  // return (
-  //   <div className="VideoPlayer">
-  //     <video
-  //       id={lesson}
-  //       key={lesson}
-  //       // We must include key here so video player is re-rendered on props change
-  //       controls
-  //       width="100%"
-  //       height="100%"
-  //     >
-  //       <source key={lesson} src={VIDEO_SOURCES[lesson]} type="video/mp4" />
-  //       <track kind="captions" />
-  //     </video>
-  //   </div>
-  // );
-};
+  return (
+    <Wrapper>
+      <YouTubePlayer ref={ref} url={`https://www.youtube.com/embed/${VIDEO_SOURCES[lesson]}`} controls width="100%" height="100%" />
+    </Wrapper>
+  )
+})
 
 VideoPlayer.propTypes = {
   lesson: PropTypes.number.isRequired,
