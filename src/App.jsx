@@ -87,7 +87,6 @@ class App extends Component {
 
     if (this.currentMomentInterval) return;
     this.currentMomentInterval = setInterval(() => {
-      const lessonId = this.videoPlayer.id;
       const curTime = this.videoPlayer.current.getCurrentTime();
       if (!curTime) return;
       const timestamp = secondsToTimestamp(curTime);
@@ -96,13 +95,9 @@ class App extends Component {
   };
 
   goToMoment = (timestamp) => {
-    const { selectedLesson } = this.state;
-    const lessonId = this.videoPlayer.id;
-
-    if (!this.videoPlayer || lessonId !== selectedLesson) this.videoPlayer = document.querySelector('video');
     const time = timestampToSeconds(timestamp);
-    this.videoPlayer.currentTime = time;
-    this.videoPlayer.play();
+    this.videoPlayer.current.seekTo(time)
+    this.videoPlayer.current.getInternalPlayer().playVideo()
   };
 
   toggleLessons = () => {
