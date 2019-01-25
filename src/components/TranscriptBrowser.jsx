@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import Search from './Search';
 import lesson1Trans from '../assets/dl-1-1/transcript.json';
 import lesson2Trans from '../assets/dl-1-2/transcript.json';
@@ -9,10 +8,6 @@ import lesson3Trans from '../assets/dl-1-3/transcript.json';
 import lesson5Trans from '../assets/dl-1-5/transcript.json';
 import lesson6Trans from '../assets/dl-1-6/transcript.json';
 // import lesson7Trans from '../assets/dl-1-7/transcript.json';
-
-const CloseX = styled.span`
-  position: absolute;
-`
 
 const TRANSCRIPTS = [
   lesson1Trans,

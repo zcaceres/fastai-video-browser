@@ -1,3 +1,9 @@
+# 🎉 Moved to Fastai!
+
+## This video browser has been adopted by fast.ai and moved to their [course-v3 repo](https://github.com/fastai/course-v3). Go there if you want to hack on it.
+
+______________________________________
+
 # fast.ai Video Browser
 
 ### A minimalist video browser for fast.ai course v3
